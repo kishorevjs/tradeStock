@@ -1,8 +1,16 @@
 package com.example.tradestock.entity;
 
-public class StockTradeRepository {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-    private int id;
+@Entity
+public class StockTrade {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String type;
     private int userId;
     private String symbol;
@@ -10,7 +18,7 @@ public class StockTradeRepository {
     private int price;
     private Long timestamp;
 
-    public StockTradeRepository(int id, String type, int userId, String symbol, int shares, int price, Long timestamp) {
+    public StockTrade(Long id, String type, int userId, String symbol, int shares, int price, Long timestamp) {
         this.id = id;
         this.type = type;
         this.userId = userId;
@@ -20,11 +28,14 @@ public class StockTradeRepository {
         this.timestamp = timestamp;
     }
 
-    public int getId() {
+    public StockTrade() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
